@@ -10,18 +10,15 @@ export default function Navbar() {
   const { data: session, status } = useSession();
 
   const handleLogout = async () => {
-    // Redirects to the home page or login page after logout
     await signOut({ callbackUrl: "/" });
   };
 
   const renderAuthButton = () => {
-    // Show a loading state or nothing if the session is still loading
     if (status === "loading") {
       return null;
     }
 
     if (session) {
-      // If a session exists (user is logged in), show the Logout button
       return (
         <button
           onClick={handleLogout}
@@ -31,7 +28,6 @@ export default function Navbar() {
         </button>
       );
     } else {
-      // If no session exists, show the Login button
       return (
         <Link
           href="/login"
@@ -68,7 +64,16 @@ export default function Navbar() {
           >
             Products
           </Link>
-          {/* Conditionally render the button based on login status */}
+          {/* Conditionally render "Add Product" link */}
+          {session && (
+            <Link
+              href="/dashboard/add-product"
+              className="text-[#030303] font-medium text-lg hover:text-[#123458] transition-colors duration-300"
+            >
+              Add Product
+            </Link>
+          )}
+          {/* Conditionally render the Login/Logout button */}
           {renderAuthButton()}
         </div>
 
@@ -100,7 +105,17 @@ export default function Navbar() {
           >
             Products
           </Link>
-          {/* Conditionally render the button for the mobile menu */}
+          {/* Conditionally render "Add Product" link for mobile */}
+          {session && (
+            <Link
+              href="/dashboard/add-product"
+              className="block text-[#030303] font-medium text-lg hover:text-[#123458] transition-colors duration-300"
+              onClick={() => setMenuOpen(false)}
+            >
+              Add Product
+            </Link>
+          )}
+          {/* Conditionally render the Login/Logout button for mobile */}
           <div
             onClick={() => {
               setMenuOpen(false);

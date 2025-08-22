@@ -1,9 +1,8 @@
-// app/login/page.js
 "use client";
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import { FcGoogle } from "react-icons/fc";
 export default function LoginPage() {
   const router = useRouter();
 
@@ -12,14 +11,19 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="p-8 bg-white rounded-lg shadow-md max-w-sm w-full text-center">
-        <h1 className="text-2xl font-bold mb-6 text-gray-800">Login</h1>
+    <div className="flex min-h-screen items-center justify-center p-4">
+      <div className="p-10 bg-[#F1EFEC] rounded-2xl shadow-xl max-w-sm w-full text-center">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#123458]">
+          NextCraft
+        </h1>
+        <p className="text-lg text-gray-600 mb-8">
+          Sign in to view our exclusive products.
+        </p>
         <button
           onClick={handleGoogleSignIn}
-          className="w-full flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#123458] transition duration-150 ease-in-out"
+          className="w-full flex items-center justify-center gap-2 px-6 py-3 border border-[#D4C9BE] rounded-xl shadow-md text-lg font-medium text-[#030303] bg-white hover:bg-[#D4C9BE] transition-all duration-300 transform hover:scale-105"
         >
-          
+          <FcGoogle size={24} />
           Sign in with Google
         </button>
       </div>

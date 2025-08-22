@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import { Providers } from "./providers";
-
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   title: "NextCraft",
@@ -11,9 +11,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="min-h-screen flex flex-col">
-        <Providers> {/* Wrap children with your Providers component */}
+    <html lang="en" className="h-full">
+      <body className="min-h-screen bg-[#F1EFEC] flex flex-col">
+        <Providers>
+          <Toaster />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

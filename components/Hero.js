@@ -21,12 +21,6 @@ export default function Hero() {
           >
             View Products
           </Link>
-          <Link
-            href="/login"
-            className="px-8 py-3 border-2 border-[#123458] text-[#123458] text-lg font-medium rounded-lg hover:bg-[#D4C9BE]/40 transition-transform transform hover:scale-105"
-          >
-            Login
-          </Link>
         </div>
       </div>
     </section>
