@@ -3,9 +3,45 @@
 import Link from "next/link";
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import { useSession, signOut } from "next-auth/react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { data: session, status } = useSession();
+
+  const handleLogout = async () => {
+    // Redirects to the home page or login page after logout
+    await signOut({ callbackUrl: "/" });
+  };
+
+  const renderAuthButton = () => {
+    // Show a loading state or nothing if the session is still loading
+    if (status === "loading") {
+      return null;
+    }
+
+    if (session) {
+      // If a session exists (user is logged in), show the Logout button
+      return (
+        <button
+          onClick={handleLogout}
+          className="bg-[#D4C9BE] text-[#030303] font-medium text-lg px-5 py-2 rounded-lg shadow hover:bg-[#123458] hover:text-[#F1EFEC] transition-all duration-300 transform hover:scale-105"
+        >
+          Logout
+        </button>
+      );
+    } else {
+      // If no session exists, show the Login button
+      return (
+        <Link
+          href="/login"
+          className="bg-[#D4C9BE] text-[#030303] font-medium text-lg px-5 py-2 rounded-lg shadow hover:bg-[#123458] hover:text-[#F1EFEC] transition-all duration-300 transform hover:scale-105"
+        >
+          Login
+        </Link>
+      );
+    }
+  };
 
   return (
     <nav className="bg-[#F1EFEC] shadow-md sticky top-0 z-50">
@@ -32,12 +68,8 @@ export default function Navbar() {
           >
             Products
           </Link>
-          <Link
-            href="/login"
-            className="bg-[#D4C9BE] text-[#030303] font-medium text-lg px-5 py-2 rounded-lg shadow hover:bg-[#123458] hover:text-[#F1EFEC] transition-all duration-300 transform hover:scale-105"
-          >
-            Login
-          </Link>
+          {/* Conditionally render the button based on login status */}
+          {renderAuthButton()}
         </div>
 
         {/* Mobile Hamburger */}
@@ -68,13 +100,17 @@ export default function Navbar() {
           >
             Products
           </Link>
-          <Link
-            href="/login"
-            className="block bg-[#D4C9BE] text-[#030303] font-medium text-lg px-5 py-2 rounded-lg shadow hover:bg-[#123458] hover:text-[#F1EFEC] transition-all duration-300 text-center"
-            onClick={() => setMenuOpen(false)}
+          {/* Conditionally render the button for the mobile menu */}
+          <div
+            onClick={() => {
+              setMenuOpen(false);
+              if (session) {
+                handleLogout();
+              }
+            }}
           >
-            Login
-          </Link>
+            {renderAuthButton()}
+          </div>
         </div>
       )}
     </nav>
