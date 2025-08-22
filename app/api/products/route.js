@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     const client = await clientPromise;
-    const db = client.db("nextcraft");
+    const db = client.db("NextCart");
     const collection = db.collection("products");
 
     // Find all documents in the collection
@@ -27,7 +27,7 @@ export async function GET() {
 export async function POST(req) {
   try {
     const client = await clientPromise;
-    const db = client.db("nextcraft");
+    const db = client.db("NextCart");
     const collection = db.collection("products");
 
     const body = await req.json();

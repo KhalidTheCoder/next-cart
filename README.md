@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+NextCart
+NextCart is a modern, full-stack e-commerce demo application built with Next.js, Tailwind CSS, and NextAuth.js. The project showcases a simple product catalog with dynamic routing, a clean and responsive user interface, and user authentication using Google.
 
-## Getting Started
+Setup & Installation
+To get this project running locally, follow these steps:
 
-First, run the development server:
+1. Clone the repository:
 
-```bash
+git clone <your-repository-url>
+cd <your-repository-folder>
+
+2. Install dependencies:
+
+npm install
+# or
+yarn install
+
+3. Set up environment variables:
+
+Create a .env.local file in the root of your project and add the following variables:
+
+# NextAuth.js
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=<your-nextauth-secret>
+
+# Google OAuth Credentials
+GOOGLE_CLIENT_ID=<your-google-client-id>
+GOOGLE_CLIENT_SECRET=<your-google-client-secret>
+
+You can generate a NEXTAUTH_SECRET by running a command like openssl rand -base64 32 in your terminal.
+
+Get your GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET from the Google Cloud Console.
+
+4. Run the development server:
+
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be accessible at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Route Summary
+This project includes several key pages:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+/: The main landing page, which serves as a welcoming introduction to the store.
 
-## Learn More
+/products: The product listing page, where all products are displayed in a grid. This route uses client-side data fetching.
 
-To learn more about Next.js, take a look at the following resources:
+/products/[id]: The dynamic product details page. It displays detailed information for a specific product based on its ID.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+/login: The user login page, which uses NextAuth.js to handle Google authentication.
