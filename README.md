@@ -77,8 +77,7 @@ This project is optimized for deployment on Vercel (creators of Next.js).
 
 Push your code to a Git repository (GitHub, GitLab, or Bitbucket).
 
-Import the repo into your Vercel Dashboard
-.
+Import the repo into your Vercel Dashboard.
 
 Deploy instantly with zero configuration.
 
