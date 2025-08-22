@@ -5,7 +5,7 @@ import { Providers } from "./providers";
 import { Toaster } from "react-hot-toast";
 
 export const metadata = {
-  title: "NextCart",
+  title: "NextCraft",
   description: "Landing page demo with Next.js 15 + Tailwind",
 };
 

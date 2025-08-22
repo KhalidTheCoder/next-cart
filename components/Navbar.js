@@ -47,7 +47,7 @@ export default function Navbar() {
           href="/"
           className="text-2xl md:text-3xl font-extrabold text-[#123458] hover:text-[#D4C9BE] transition-colors duration-300"
         >
-          NextCart
+          NextCraft
         </Link>
 
         {/* Desktop Links */}

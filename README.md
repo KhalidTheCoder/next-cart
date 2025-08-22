@@ -1,5 +1,5 @@
-NextCart
-NextCart is a modern, full-stack e-commerce demo application built with Next.js, Tailwind CSS, and NextAuth.js. The project showcases a simple product catalog with dynamic routing, a clean and responsive user interface, and user authentication using Google.
+NextCraft
+NextCraft is a modern, full-stack e-commerce demo application built with Next.js, Tailwind CSS, and NextAuth.js. The project showcases a simple product catalog with dynamic routing, a clean and responsive user interface, and user authentication using Google.
 
 Setup & Installation
 To get this project running locally, follow these steps:

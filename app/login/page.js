@@ -14,7 +14,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center p-4">
       <div className="p-10 bg-[#F1EFEC] rounded-2xl shadow-xl max-w-sm w-full text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-[#123458]">
-          NextCart
+          NextCraft
         </h1>
         <p className="text-lg text-gray-600 mb-8">
           Sign in to view our exclusive products.

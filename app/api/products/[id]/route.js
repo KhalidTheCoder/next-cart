@@ -15,7 +15,7 @@ export async function GET(req, { params }) {
     }
 
     const client = await clientPromise;
-    const db = client.db("NextCart");
+    const db = client.db("NextCraft");
     const collection = db.collection("products");
 
     // Find a single product by its MongoDB ObjectId
